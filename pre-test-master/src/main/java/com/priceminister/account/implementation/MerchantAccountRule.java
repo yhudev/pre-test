@@ -17,7 +17,7 @@ package com.priceminister.account.implementation;
 import com.priceminister.account.AccountRule;
 import com.priceminister.constants.AccountRuleConstant;
 
-public class CustomerAccountRule implements AccountRule {
+public class MerchantAccountRule implements AccountRule {
 
 	/*
 	 * (non-Javadoc)
@@ -37,7 +37,7 @@ public class CustomerAccountRule implements AccountRule {
 
 	@Override
 	public boolean plafondChecked(Double withdrawnAmount) {
-		return withdrawnAmount <= AccountRuleConstant.CUSTOMER;
+		return withdrawnAmount <= AccountRuleConstant.MERCHANT;
 	}
 
 }
