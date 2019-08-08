@@ -1,24 +1,27 @@
 package com.priceminister.exceptions;
 
-public class IllegalInputValueException extends Exception {
+/**
+ * Illegal input value exception. Thrown when the input value is not in expected
+ * range.
+ *
+ * @author Yue HU
+ *
+ */
+public class IllegalInputValueException extends IllegalOperationException {
 
-	private static final long serialVersionUID = 7069980483481898739L;
+    private static final long serialVersionUID = 7069980483481898739L;
 
-	private final Double inputValue;
+    /**
+     * Constructor {@link IllegalInputValueException}
+     *
+     * @param illegalValue
+     */
+    public IllegalInputValueException(Double illegalValue) {
+        super(illegalValue);
+    }
 
-	public IllegalInputValueException(Double inputValue) {
-		this.inputValue = inputValue;
-	}
-
-	/**
-	 * @return the inputValue
-	 */
-	public Double getInputValue() {
-		return inputValue;
-	}
-
-	@Override
-	public String toString() {
-		return "Illegal input value: " + inputValue;
-	}
+    @Override
+    public String toString() {
+        return "Illegal input value: " + this.getIllegalValue();
+    }
 }

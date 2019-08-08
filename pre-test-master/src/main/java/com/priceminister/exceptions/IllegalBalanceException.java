@@ -1,24 +1,27 @@
 package com.priceminister.exceptions;
 
-public class IllegalBalanceException extends Exception {
+/**
+ * Illegal balance exception. Thrown when the balance is not in expected range.
+ *
+ * @author Yue HU
+ *
+ */
+public class IllegalBalanceException extends IllegalOperationException {
 
-	private static final long serialVersionUID = -9204191749972551939L;
+    private static final long serialVersionUID = -9204191749972551939L;
 
-	private final Double balance;
+    /**
+     * Constructor {@link IllegalBalanceException}
+     *
+     * @param illegalValue
+     *            Illegal value
+     */
+    public IllegalBalanceException(Double illegalValue) {
+        super(illegalValue);
+    }
 
-	public IllegalBalanceException(Double illegalBalance) {
-		balance = illegalBalance;
-	}
-
-	/**
-	 * @return the balance
-	 */
-	public Double getBalance() {
-		return balance;
-	}
-
-	@Override
-	public String toString() {
-		return "Illegal account balance: " + balance;
-	}
+    @Override
+    public String toString() {
+        return "Illegal account balance: " + this.getIllegalValue();
+    }
 }
